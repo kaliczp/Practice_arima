@@ -15,12 +15,12 @@ class(ndvi2time)
 library(forecast)
 library(tseries)
 plot(ndvi2time)
-#chech the stachinary of the data there are three type of data(seasonalty,stachinarity,categroty)
+#chech the stationary of the data there are three type of data(seasonalty,stachinarity,categroty)
 # first we chech the outo corelation using acf funtion
 #if the lines are between the two blue dots that means the data is significantly corelated
 acf(ndvi2time)
 #another stationary test is to use pacf function
-pacf(ndvitime)
+pacf(ndvi2time)
 # another test is to chech the p value by using adf.test function
 adf.test(ndvi2time)
 # the p value should be less than 0.5 if its large then we use outo.aeima function to convert non stationary to stationary data
