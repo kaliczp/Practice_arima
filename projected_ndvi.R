@@ -1,10 +1,14 @@
 ndvi2 <- read.csv("ndvi2.csv")
 class(ndvi2)
 str(ndvi2)
-plot(ndvi2)
+plot(ndvi2, typ="l")
 #convert the data in to time series by using ts function
 #ndvitime=ts(ndvi2$NDVI,start =min(ndvi2$Date),end = max(ndvi2$Date),frequency = 1)
 ndvi2time=ts(ndvi2$NDVI,start = min(ndvi2$Years),end = max(ndvi2$Years),frequency=1)
+## Show the nature of ts
+ndvi2time=ts(ndvi2$NDVI,start = min(ndvi2$Years),end = 2022.1,frequency=1)
+## Reconsidering transormation to ts I skip the last element with index
+ndvi2time=ts(ndvi2$NDVI[-6],start = min(ndvi2$Years),end = 2020.1,frequency = 1/5)
 #chech the data if its converted 
 class(ndvi2time)
 #upload the required libraries
