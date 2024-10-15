@@ -28,8 +28,11 @@ adf.test(ndvi2time)
 ##ndvimodel
 # again chech the outo corelation
 ##acf(ts(ndvimodel$residuals))
+## Model building by tslm
+ndvi2fit <- tslm(ndvi2time ~ trend)
+plot(forecast(ndvi2fit, h=20))
 #now we forecat
-myndviforecast=forecast(ndvi2time,level = c(95),h=10*1)
+myndviforecast=forecast(ndvi2fit,level = c(95),h=10)
 #plot forecast
 plot(myndviforecast)
 #now we validate the accuracy the p value should be lower than 0.5
