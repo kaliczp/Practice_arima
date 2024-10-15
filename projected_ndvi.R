@@ -1,3 +1,4 @@
+ndvi2 <- read.csv2("ndvi2.csv")
 class(ndvi2)
 str(ndvi2)
 plot(ndvi2)
